@@ -16,6 +16,24 @@ A RESTful API built using **Spring Boot** for managing Training Centers. It prov
 
 ---
 
+## Technology Stack
+
+| Technology         | Description                          |
+|--------------------|--------------------------------------|
+| Java               | Programming Language (Java 17+)      |
+| Spring Boot        | Backend Framework (Spring Boot 3.x) |
+| Spring Web         | RESTful APIs Development             |
+| Spring Data JPA    | ORM (Object Relational Mapping)      |
+| Hibernate Validator| Validation Framework (JSR 380)      |
+| H2 Database        | In-Memory Database (For Development)|
+| MySQL (Optional)   | Relational Database (For Production)|
+| Maven              | Build Tool                          |
+| REST API (JSON)    | Communication Format                 |
+| Postman            | API Testing Tool                    |
+| IntelliJ / Eclipse | IDE for Development                 |
+
+---
+
 ## API Endpoints
 
 ### 1 Retrieve a New Training Center  
@@ -62,6 +80,10 @@ A RESTful API built using **Spring Boot** for managing Training Centers. It prov
   }
 ]
 ```
+```Example Empty Response
+[]
+
+```
 **RESPONSE**
 ***200 OK***
 ### 2 Create a New Training Center  
@@ -88,5 +110,20 @@ A RESTful API built using **Spring Boot** for managing Training Centers. It prov
 }
 
 ```
+
+## How to Clone, Build, and Run Locally
+
+### 1 Clone the Repository
+```bash
+git clone https://github.com/Adityakumarsinghstm/Backend_Traini8_AdityaKumar/
+cd TrainingCenters
+```
+### 2 Build and Run the Application
+```bash
+mvn clean install
+mvn spring-boot:run
+```
+## Author
+### Aditya Kumar
 
 
