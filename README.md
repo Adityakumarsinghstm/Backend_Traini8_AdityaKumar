@@ -37,7 +37,7 @@ A RESTful API built using **Spring Boot** for managing Training Centers. It prov
 ## API Endpoints
 
 ### 1 Retrieve a New Training Center  
-**GET** `/training-center`
+**GET** `http://localhost:9191/training-center`
 ```Example Success Response
 [
   {
@@ -87,7 +87,7 @@ A RESTful API built using **Spring Boot** for managing Training Centers. It prov
 **RESPONSE**
 ***200 OK***
 ### 2 Create a New Training Center  
-**POST** `/training-center`
+**POST** `http://localhost:9191/training-center`
 
 #### Request Body (JSON)
 ```json
@@ -110,7 +110,75 @@ A RESTful API built using **Spring Boot** for managing Training Centers. It prov
 }
 
 ```
+#### ✅ H2 Configuration in `application.properties`
 
+``` Properties
+spring.application.name=TrainingCenters
+
+server.port=9191
+
+# H2 in-memory database
+spring.datasource.url=jdbc:h2:mem:traini8
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+# Optional
+## MySQL Database Configuration
+#spring.datasource.url=jdbc:mysql://localhost:3306/traini8
+#spring.datasource.username=root
+#spring.datasource.password=aditya
+#
+
+
+```
+#### ✅ Required Dependency in `pom.xml`
+
+``` Dependencies
+I have used both the databases but for the setup simplicity i have added h2 
+<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>com.mysql</groupId>-->
+<!--			<artifactId>mysql-connector-j</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+
+		<!-- H2 In-Memory Database -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+```
 ## How to Clone, Build, and Run Locally
 
 ### 1 Clone the Repository
